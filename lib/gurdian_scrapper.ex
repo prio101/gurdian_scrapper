@@ -28,7 +28,7 @@ defmodule GurdianScrapper do
     IO.binwrite(file, data <>", \n" )
   end
 
-  def parse_by_id(body, n, file) when n <= 5 do
+  def parse_by_id(body, n, file) when n <= 934 do
     by_td_data(body, n, file)
     parse_by_id(body, n + 1, file)
   end
@@ -36,7 +36,7 @@ defmodule GurdianScrapper do
   def parse_by_id(_body, _n, file) do
     File.close file
   end
-  
+
   def by_td_data(body, i, file) do
     Enum.each(0..4, fn j ->
       body
